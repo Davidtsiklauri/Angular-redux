@@ -6,7 +6,9 @@ import { Ilist } from '../models/list.interface';
 export enum ListActions  {
    
      addList = '[List] Add List',
-     deleteList = '[List] Delete List'
+     deleteList = '[List] Delete List',
+     addToFavourites = '[List] Add addToFavourites',
+     removeFromFavourites = '[List] Add removeFromFavourites'
 }
 
 export class AddList implements Action {
@@ -16,8 +18,19 @@ export class AddList implements Action {
 
 export class  DeleteList implements Action {
      public readonly type = ListActions.deleteList;
-     constructor( public payload: number ) {}
+     constructor( public payload: string ) {}
 
 }
 
-export type listActions = AddList | DeleteList;
+export class addToFavourites implements Action {
+      public readonly type = ListActions.addToFavourites;
+      constructor( public payload: string  ) {}
+
+}
+
+export class removeFromFavourites implements Action {
+     public readonly type = ListActions.removeFromFavourites
+     constructor( public payload: string ) {}
+}
+
+export type listActions = AddList | DeleteList | addToFavourites | removeFromFavourites;

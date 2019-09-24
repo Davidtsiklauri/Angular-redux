@@ -1,18 +1,1 @@
-<div class="list">
-    <div class="list__container p-4">  
-      <div class="list__container__list" *ngIf="( listItems$ | async ) as items else loading">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item" *ngFor='let item of items;let i = index;'>{{ item.name }}<a href="#" (click)='deleteItem(i)'>X</a></li>
-
-        </ul>
-      </div> 
-
-        <div class="d-flex justify-content-around mt-5">
-            <input type="text" placeholder="Enter list" class="form-control w-75" [formControl]="listControl" >
-            <button type="submit" class="btn btn-primary" (click)='onSave()'>Save</button>
-        </div>
-    </div>
- 
-</div>
-
-<ng-template #loading> <h1>DATA IS LOADING BITCHES</h1> </ng-template>
+<app-store-items></app-store-items>
